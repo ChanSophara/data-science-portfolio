@@ -6,949 +6,14 @@
     <title>Chan Sophara | Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --dark-color: #1e293b;
-            --light-color: #f8fafc;
-            --gray-color: #94a3b8;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-            color: var(--primary-color);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(248, 250, 252, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background-color: rgba(248, 250, 252, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .logo span {
-            color: var(--dark-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-weight: 600;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(248, 250, 252, 1) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-text h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: var(--gray-color);
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            z-index: 2;
-        }
-
-        .hero-shape {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(37, 99, 235, 0) 100%);
-            z-index: 1;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: white;
-            color: var(--primary-color);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* About Section */
-        #about {
-            background-color: white;
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-image {
-            flex: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--gray-color);
-        }
-
-        .skills {
-            margin-top: 30px;
-        }
-
-        .skills h4 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background-color: var(--light-color);
-            color: var(--primary-color);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid rgba(37, 99, 235, 0.2);
-        }
-
-        /* Experience Section */
-        #experience {
-            background-color: var(--light-color);
-        }
-
-        .experience-container {
-            display: flex;
-            gap: 30px;
-        }
-
-        .experience-tabs {
-            flex: 1;
-            max-width: 300px;
-        }
-
-        .experience-tab {
-            padding: 15px 20px;
-            cursor: pointer;
-            border-left: 3px solid var(--gray-color);
-            transition: all 0.3s ease;
-        }
-
-        .experience-tab.active {
-            border-left: 3px solid var(--primary-color);
-            background-color: rgba(37, 99, 235, 0.1);
-        }
-
-        .experience-tab:hover:not(.active) {
-            background-color: rgba(37, 99, 235, 0.05);
-        }
-
-        .experience-content {
-            flex: 2;
-        }
-
-        .experience-item {
-            display: none;
-        }
-
-        .experience-item.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .experience-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .experience-item h4 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .experience-item .date {
-            display: inline-block;
-            background-color: rgba(37, 99, 235, 0.1);
-            color: var(--primary-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .experience-item ul {
-            list-style-position: inside;
-            margin-left: 10px;
-        }
-
-        .experience-item li {
-            margin-bottom: 8px;
-        }
-
-        /* Projects Section */
-        #projects {
-            background-color: white;
-        }
-
-        .projects-filter {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 8px 20px;
-            border-radius: 20px;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .filter-btn:hover:not(.active) {
-            background-color: rgba(37, 99, 235, 0.1);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-
-        .project-tags {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .project-tag {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .project-content p {
-            color: var(--gray-color);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .project-links a {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Project Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background-color: white;
-            max-width: 900px;
-            margin: 50px auto;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--gray-color);
-            cursor: pointer;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            color: var(--danger-color);
-            transform: rotate(90deg);
-        }
-
-        .modal-header {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .modal-header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-body h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .modal-body h3 {
-            font-size: 1.3rem;
-            margin: 20px 0 10px;
-            color: var(--primary-color);
-        }
-
-        .modal-body p {
-            margin-bottom: 15px;
-            color: var(--gray-color);
-        }
-
-        .modal-body ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .modal-body li {
-            margin-bottom: 8px;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-            border-top: 1px solid #eee;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: var(--light-color);
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
-            color: var(--gray-color);
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(37, 99, 235, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        .contact-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .contact-text p {
-            margin: 0;
-            color: var(--gray-color);
-            font-size: 0.9rem;
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-            outline: none;
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .footer-col {
-            flex: 1;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--light-color);
-        }
-
-        .footer-col p {
-            color: var(--gray-color);
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a {
-            color: var(--gray-color);
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray-color);
-            font-size: 0.9rem;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-btns {
-                justify-content: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .experience-container {
-                flex-direction: column;
-            }
-
-            .experience-tabs {
-                max-width: 100%;
-                display: flex;
-                overflow-x: auto;
-                padding-bottom: 10px;
-            }
-
-            .experience-tab {
-                border-left: none;
-                border-bottom: 3px solid var(--gray-color);
-                white-space: nowrap;
-            }
-
-            .experience-tab.active {
-                border-left: none;
-                border-bottom: 3px solid var(--primary-color);
-            }
-
-            .contact-container {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                gap: 30px;
-                transition: all 0.3s ease;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .modal-header {
-                height: 250px;
-            }
-        }
-
-        /* PDF Viewer Modal Styles */
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            overflow: auto;
-        }
-
-        .pdf-modal-content {
-            background-color: white;
-            margin: 2% auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 900px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .pdf-modal iframe {
-            width: 100%;
-            height: 80vh;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .close-pdf-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-pdf-modal:hover {
-            color: var(--danger-color);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
     <!-- Header -->
     <header id="header">
         <div class="container">
@@ -984,7 +49,6 @@
                         <a href="https://github.com/ChanSophara" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/chan-sophara-99a7692b7/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="mailto:Sopharachan90@gmail.com"><i class="fas fa-envelope"></i></a>
-                        
                     </div>
                 </div>
                 <div class="hero-image">
@@ -1033,77 +97,75 @@
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">My Experience</h2>
-            <div class="experience-container">
-                <div class="experience-tabs">
-                    <div class="experience-tab active" data-tab="work">Work Experience</div>
-                    <div class="experience-tab" data-tab="education">Education</div>
-                    <div class="experience-tab" data-tab="certifications">Certifications</div>
-                </div>
-                <div class="experience-content">
-                    <div class="experience-item active" id="work-experience">
+            <h2 class="section-title">My Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2024 - Dec 2024</div>
+                    <div class="timeline-content">
                         <h3>Junior Data Analyst (Internship)</h3>
                         <h4>Digital Government Committee (DGC)</h4>
-                        <span class="date">Jul 2024 - Dec 2024</span>
                         <ul>
                             <li>Performed data cleaning and processing for government datasets</li>
-                            <li>Developed Python scripts using Requests library to extract data through REST API, reducing manual effort by 40%</li>
+                            <li>Developed Python scripts using Requests library to extract data through REST API</li>
                             <li>Created interactive Power BI dashboards for government products</li>
-                            <li>Supported Power BI development, documentation and research for 2 main government products</li>
                             <li>Researched D3.js for potential website dashboard development</li>
-                            <li>Built a website dashboard based on Power BI work</li>
-                            <li>Researched and developed new ways to improve visualization and features of the products</li>
-                            <li>Enhanced mobile view visualization for better user experience</li>
-                            <!-- Add this button for transcript download -->
-                            <a href="documents/transcript.pdf" <button class="btn btn-outline mt-3 view-transcript-btn" style="margin-top: 15px;">
-                                    <i class="fas fa-file-pdf"></i> View Academic Transcript
-                            </button>
-                        </a>
                         </ul>
+                        <a href="documents/transcript.pdf" class="btn btn-outline mt-3">
+                            <i class="fas fa-file-pdf"></i> View Transcript
+                        </a>
                     </div>
-                    <div class="experience-item" id="education-experience">
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
                         <h3>Bachelor Degree of Data Science</h3>
                         <h4>Institute of Technology of Cambodia</h4>
-                        <span class="date">2022 - Present</span>
                         <p>Major in Applied Mathematics and Statistics</p>
-                        <h3 style="margin-top: 20px;">High School Diploma</h3>
-                        <h4>Sovannaphumi School</h4>
-                        <span class="date">Graduated 2021</span>
-                        
-                        <!-- Add this button for transcript download -->
-                        <a href="documents/transcript.pdf" <button class="btn btn-outline mt-3 view-transcript-btn" style="margin-top: 15px;">
-                                <i class="fas fa-file-pdf"></i> View Academic Transcript
-                            </button>
-                        </a>
-
-                        <h3 style="margin-top: 20px;">High School Diploma</h3>
-                        <h4>Sovannaphumi School</h4>
-                        <span class="date">Graduated 2021</span>
-                        <!-- Add this button for transcript download -->
-                        <a href="documents/transcript.pdf" <button class="btn btn-outline mt-3 view-transcript-btn" style="margin-top: 15px;">
-                                <i class="fas fa-file-pdf"></i> View Academic Transcript
-                            </button>
+                        <a href="documents/transcript.pdf" class="btn btn-outline mt-3">
+                            <i class="fas fa-file-pdf"></i> View Transcript
                         </a>
                     </div>
-                    <div class="experience-item" id="certifications-experience">
-                        <h3>Workshops & Certifications</h3>
-                        <ul>
-                            <li>Career Fair (ITC)</li>
-                            <li>Workshop on FinTech (Youth and Financial Technology)</li>
-                            <li>Techno Innovation Challenge Cambodia (ITC)</li>
-                            <li>Introduction to Machine Learning (ITC)</li>
-                            <li>Introduction to Natural Language Processing (ITC)</li>
-                            <li>Data Science Seminar (KIT, Japan)</li>
-                            <li>Data Science Workshop (Dichi Academy)</li>
-                            <li>Training on Digital Transformation in Engineering (Board of Engineers, Cambodia)</li>
-                            <li>Workshop on "The Power of Data Science and Cybersecurity" (USAID Representative)</li>
-                            <li>ASEAN Data Science Explorer (SAP)</li>
-                            <!-- Add this button for transcript download -->
-                            <a href="documents/transcript.pdf" <button class="btn btn-outline mt-3 view-transcript-btn" style="margin-top: 15px;">
-                                    <i class="fas fa-file-pdf"></i> View Academic Transcript
-                            </button>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Graduated 2021</div>
+                    <div class="timeline-content">
+                        <h3>High School Diploma</h3>
+                        <h4>Sovannaphumi School</h4>
+                        <a href="documents/transcript.pdf" class="btn btn-outline mt-3">
+                            <i class="fas fa-file-pdf"></i> View Transcript
                         </a>
-                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Various</div>
+                    <div class="timeline-content">
+                        <h3>Workshops & Certifications</h3>
+                        <div class="certifications-grid">
+                            <div class="certification-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Career Fair (ITC)</span>
+                            </div>
+                            <div class="certification-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Workshop on FinTech</span>
+                            </div>
+                            <div class="certification-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Techno Innovation Challenge</span>
+                            </div>
+                            <div class="certification-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Introduction to Machine Learning</span>
+                            </div>
+                            <div class="certification-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Data Science Seminar (KIT, Japan)</span>
+                            </div>
+                            <div class="certification-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>ASEAN Data Science Explorer (SAP)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1247,7 +309,6 @@
                 </div>
 
                 <!-- Project 6 -->
-                <!-- Project Card for Gym Management System -->
                 <div class="project-card" data-category="web-development">
                     <div class="project-image">
                         <img src="img/Gym-preview.jpg" alt="Gym Management System">
@@ -1281,7 +342,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/9-jg1-sjzyk?si=UiI6ne0A7YH_9MgG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="drowsiness-video" width="100%" height="100%" src="https://www.youtube.com/embed/9-jg1-sjzyk?si=UiI6ne0A7YH_9MgG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="modal-body">
                 <h2>Driver Drowsiness Detection</h2>
@@ -1312,7 +373,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ms8VlDGCaMs?si=i9eyhLi3okq8YaXC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="traffic-video" width="100%" height="100%" src="https://www.youtube.com/embed/ms8VlDGCaMs?si=i9eyhLi3okq8YaXC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="modal-body">
                 <h2>Traffic Light and Sign Detection</h2>
@@ -1343,7 +404,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YQWZEPtXr1E?si=nRV0veJSxi72ABav" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="food-video" width="100%" height="100%" src="https://www.youtube.com/embed/YQWZEPtXr1E?si=nRV0veJSxi72ABav" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="modal-body">
                 <h2>Food Delivery System</h2>
@@ -1375,7 +436,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/49AKsgazMco?si=X4_P83s7Mi_nRxmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="chatbot-video" width="100%" height="100%" src="https://www.youtube.com/embed/49AKsgazMco?si=X4_P83s7Mi_nRxmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="modal-body">
                 <h2>Rule-Based Chatbot (RPC)</h2>
@@ -1407,7 +468,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dmx-a92-FNc?si=_kf1gZei4fOqBLBW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="loan-video" width="100%" height="100%" src="https://www.youtube.com/embed/dmx-a92-FNc?si=_kf1gZei4fOqBLBW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="modal-body">
                 <h2>Loan Prediction</h2>
@@ -1439,7 +500,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rDWQy3rt73Q?si=mvGL3DvVr-E2Skgj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="gym-video" width="100%" height="100%" src="https://www.youtube.com/embed/rDWQy3rt73Q?si=mvGL3DvVr-E2Skgj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="modal-body">
                 <h2>Gym Management System</h2>
@@ -1492,7 +553,7 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Let's Talk About Your Project</h3>
-                    <p>I'm currently looking for internship opportunities in Data Science and Machine Learning. Feel free to reach out if you have any questions or just want to connect!</p>
+                    <p>I'm currently looking for internship opportunities in Data field and Machine Learning. Feel free to reach out if you have any questions or just want to connect!</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
@@ -1523,7 +584,27 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1573,158 +654,7 @@
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-        // Mobile Navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            const backToTop = document.querySelector('.back-to-top');
-            
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-                backToTop.classList.add('active');
-            } else {
-                header.classList.remove('scrolled');
-                backToTop.classList.remove('active');
-            }
-        });
-
-        // Back to top button
-        document.querySelector('.back-to-top').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Experience tabs
-        const experienceTabs = document.querySelectorAll('.experience-tab');
-        const experienceItems = document.querySelectorAll('.experience-item');
-
-        experienceTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs and items
-                experienceTabs.forEach(t => t.classList.remove('active'));
-                experienceItems.forEach(i => i.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-experience`).classList.add('active');
-            });
-        });
-
-        // Project filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                // Filter projects
-                const filter = btn.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Project modals
-        const viewProjectBtns = document.querySelectorAll('.view-project');
-        const modals = document.querySelectorAll('.modal');
-        const closeModalBtns = document.querySelectorAll('.close-modal, .close-modal-btn');
-
-        viewProjectBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const projectId = btn.getAttribute('data-project');
-                document.getElementById(`${projectId}-modal`).style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        closeModalBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                modals.forEach(modal => {
-                    modal.style.display = 'none';
-                });
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For demonstration, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
